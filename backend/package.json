@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon --exec ts-node-esm server.ts"
+    "build": "tsc",
+    "dev": "nodemon dist/server.js"
   },
   "type": "module",
   "keywords": [],
@@ -17,8 +18,7 @@
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.15.0",
-    "nodemon": "^3.1.10"
+    "mongoose": "^8.15.0"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
@@ -27,6 +27,7 @@
     "@types/express": "^5.0.2",
     "@types/jsonwebtoken": "^9.0.9",
     "@types/node": "^22.15.21",
+    "nodemon": "^3.1.10",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
   }

@@ -1,16 +1,36 @@
+// {
+//   "compilerOptions": {
+//     "target": "ES2020",
+//     "module": "ESNext",
+//     "moduleResolution": "Node",
+//     "esModuleInterop": true,
+//     "moduleDetection": "force",
+//     "resolveJsonModule": true,
+//     "allowSyntheticDefaultImports": true,
+//     "strict": true,
+//     "skipLibCheck": true,
+//     "forceConsistentCasingInFileNames": true
+//   },
+//   "ts-node": {
+//     "compilerOptions": {
+//       "module": "ESNext"
+//     },
+//     "esm": true
+//   }
+// }
+
 {
   "compilerOptions": {
-    "target": "ES2020",
+    "outDir": "./dist",                // ✅ compiled JS files go here
+    "rootDir": "./",                   // ✅ treat project root as base
     "module": "ESNext",
     "moduleResolution": "node",
+    "target": "ES2020",
     "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
     "strict": true,
     "skipLibCheck": true,
-    "types": ["node"],
     "resolveJsonModule": true
   },
-  "ts-node": {
-    "esm": true
-  }
+  "include": ["./**/*.ts"],
+  "exclude": ["node_modules", "dist"]
 }
