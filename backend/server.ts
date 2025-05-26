@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 dotenv.config();
 import cookieParser from "cookie-parser";
 import userRouter from "./routes/user.routes.js";
+import productRouter from "./routes/product.routes.js";
 
 app.use(express.json());
 app.use(cors({ credentials: true, origin: "http://localhost:5173" }));
@@ -15,7 +16,8 @@ app.use("/", (req, res ) => {
   res.send("Welcome to the API");
 })
 app.use("/auth", userRouter);
-
+app.use("/products", productRouter);
+  
 const PORT = process.env.PORT || 8000;
 
 app.listen(PORT, () => {
