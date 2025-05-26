@@ -1,6 +1,6 @@
 import { User } from "../models/user.model.js";
 import bcrypt from "bcrypt";
-import { genTokenSetCookies } from "../utils/middleware.js";
+import { genTokenSetCookies } from "../utils/token.js";
 
 export const register = async (req:any, res:any) => {
   try {

@@ -11,6 +11,9 @@ app.use(cors({ credentials: true, origin: "http://localhost:5173" }));
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 
+app.use("/", (req, res ) => {
+  res.send("Welcome to the API");
+})
 app.use("/auth", userRouter);
 
 const PORT = process.env.PORT || 8000;
