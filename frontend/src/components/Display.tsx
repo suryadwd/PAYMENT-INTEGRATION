@@ -1,6 +1,11 @@
 import Navbar from "./Navbar";
+import { useUserData } from "../hooks/getuserData";
 
 const Display = () => {
+
+  const { role } = useUserData();
+ 
+
   return (
     <div className="flex flex-wrap gap-3">
     <Navbar />
@@ -22,9 +27,20 @@ const Display = () => {
           T shirt blue in color hot fabric strechable
         </div>
         <div className="flex items-center justify-evenly w-full gap-2">
-          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Buy Now </button>
-          <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Update </button>
+
+          {
+            role === "user" ? (
+              <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Buy Now </button>
+            ) : (
+              <>
+            <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Update </button>
           <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Delete </button>
+              </>
+            )
+          }
+
+          
+          
         </div>
       </div>
     </div>
