@@ -9,14 +9,11 @@ type Product = {
   name: string;
   price: number;
   description: string;
-  // add other properties if needed
 };
 
 const Display = () => {
   const { role } = useUserData();
   const { products } = getProducts() as { products: Product[] };
-
-  console.log(products);
 
   return (
     <div className="flex flex-wrap gap-3">
@@ -29,11 +26,11 @@ const Display = () => {
       ) : (
         // use map here to map
 
-        products.map((products) => (
+        products.map((products, index) => (
           
-           <div className=" flex flex-col items-center justify-center border-4 border-blue-500 rounded-lg p-1 bg-white text-black">
+           <div key={index} className=" flex flex-col items-center justify-center border-4 border-blue-500 rounded-lg p-1 bg-white text-black">
           <div className="">
-            <img className=" " src={products.image} alt="Display" />
+            <img className="h-40 w-36 object-contain " src={products.image} alt="Display" />
           </div>
 
           <div className="flex flex-col items-center justify-center relative p-2">

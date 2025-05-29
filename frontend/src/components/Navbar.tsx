@@ -2,6 +2,7 @@ import { toast } from 'react-toastify';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useUserData } from '../hooks/getuserData';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
 
@@ -34,7 +35,7 @@ const Navbar = () => {
        <div className="flex items-center gap-10 text-black">
           {
             role === "admin" ? (
-              <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Add-Admin</button>
+              <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"><Link to="/add">Add-Admin</Link></button>
             ) : (
               <></>
             )
