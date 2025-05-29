@@ -4,11 +4,10 @@ import axios from 'axios';
 const baseUrl = import.meta.env.VITE_BASE_URL; // or however you access it
 
 export const getProducts = () => {
-  
 
   const [products, setProducts] = useState([])
-  useEffect(() => {
-    const fetchProducts = async () => {
+
+   const fetchProducts = async () => {
 
     try {
       const res = await axios.get(`${baseUrl}/products/`, {
@@ -23,8 +22,11 @@ export const getProducts = () => {
       console.error("Error updating item:", error);
     }
     };
-    fetchProducts();
-  }, []);
 
-  return { products };
+  useEffect(() => {
+   
+    fetchProducts();
+  }, [fetchProducts, products]);
+
+  return { products, fetchProducts};
 };

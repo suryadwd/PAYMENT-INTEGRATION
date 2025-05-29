@@ -56,6 +56,21 @@ export const updateProduct = async (req: any, res: any) => {
   }
 }
 
+/*************  ✨ Windsurf Command ⭐  *************/
+/**
+ * Deletes a product by its ID.
+ *
+ * This function handles the deletion of a product from the database 
+ * using the product ID provided in the request parameters. 
+ * It returns a 400 status if the product ID is not provided, 
+ * a 404 status if the product is not found, and a 200 status 
+ * with a success message if the product is deleted successfully.
+ *
+ * @param req - The request object containing the product ID in the parameters.
+ * @param res - The response object used to send back the appropriate HTTP response.
+ */
+
+/*******  05346216-cee4-4d82-8903-af3c0be5338e  *******/
 export const deleteProduct = async (req: any, res: any) => {
   try {
     const { id } = req.params;

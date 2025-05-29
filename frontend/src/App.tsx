@@ -10,6 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import ProtectedRoute from "./middleware/Protected";
 import AddProducts from "./components/AddProducts";
+import UpdateProduct from "./components/UpdateProduct";
 
 
 
@@ -24,6 +25,7 @@ const App = () => {
       <Route path="/store" element={ <ProtectedRoute> <Display /> </ProtectedRoute> } />
       <Route path="/about" element={<ProtectedRoute> <About /></ProtectedRoute>} />
       <Route path="/add" element={<ProtectedRoute> <AddProducts /></ProtectedRoute>} />
+      <Route path="/update/:id" element={<ProtectedRoute> <UpdateProduct /></ProtectedRoute>} />
      </Routes>
      <ToastContainer position="top-right"  />
     </div>
