@@ -21,7 +21,7 @@ const App = () => {
       <Route path="/auth/login" element={<Login />} />
       <Route path="/auth/signup" element={<Signup />} />
       <Route path="/store" element={ <ProtectedRoute> <Display /> </ProtectedRoute> } />
-      <Route path="/about" element={<About />} />
+      <Route path="/about" element={<ProtectedRoute> <About /></ProtectedRoute>} />
      </Routes>
      <ToastContainer position="top-right"  />
     </div>

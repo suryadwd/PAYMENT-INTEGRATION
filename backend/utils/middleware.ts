@@ -5,7 +5,7 @@ dotenv.config();
 
 export const protectRoute = async (req: any, res: any, next:  any) => {
   try {
-    const token = req.cookies.jwt;
+    const token = req.cookies.jwtToken;
 
     if (!token) {
       console.log("No token found in cookies:", req.cookies);
@@ -16,26 +16,22 @@ export const protectRoute = async (req: any, res: any, next:  any) => {
 
     const decoded = jwt.verify(token, process.env.JWT_SECRET as string);
 
-    if (!decoded || (typeof decoded !== "object" || !("_id" in decoded))) {
+    if (!decoded) {
       return res.status(401).json({ message: "Token verification failed" });
     }
 
-    const user = await User.findById((decoded as any)._id).select("-password");
+    const user = await User.findById((decoded as any).id).select("-password");
 
     if (!user) {
       return res.status(401).json({ message: "User not found" });
     }
 
     req.user = user;
+
+
     next();
   } catch (error: any) {
     console.log("Error in protectRoute middleware:", error);
-    if (error.name === "JsonWebTokenError") {
-      return res.status(401).json({ message: "Invalid token" });
-    }
-    if (error.name === "TokenExpiredError") {
-      return res.status(401).json({ message: "Token expired" });
-    }
     return res.status(500).json({ message: "Internal Server Error" });
   }
 };

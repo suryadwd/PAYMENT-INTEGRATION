@@ -93,7 +93,8 @@ export const logout = async (req: any, res: any) => {
 
 export const getUserInfo = async (req: any, res: any) => {
   try {
-    const userId = req.userId; 
+    const userId = req.user._id; 
+ 
     if (!userId)
       return res
         .status(400)
