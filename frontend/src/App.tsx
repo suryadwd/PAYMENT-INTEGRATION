@@ -5,16 +5,19 @@ import Signup from "./components/Signup";
 import Display from "./components/Display";
 import Home from "./components/Home";
 import About from "./components/About";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const App = () => {
   return (
     <div className="bg-gradient-to-r from-black to-blue-600 text-white min-h-screen flex items-center justify-center">
      <Routes>
       <Route path="/auth/login" element={<Login />} />
       <Route path="/auth/signup" element={<Signup />} />
-      <Route path="/display" element={<Display />} />
+      <Route path="/store" element={<Display />} />
       <Route path="/" element={<Home />} />
       <Route path="/about" element={<About />} />
      </Routes>
+     <ToastContainer position="top-right"  />
     </div>
   )
 }
