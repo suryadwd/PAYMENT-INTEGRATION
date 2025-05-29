@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import axios from 'axios';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Signup = () => {
 
@@ -13,11 +14,9 @@ const Signup = () => {
     password: ''
   })
 
+  const navigate = useNavigate();
 
-
-  const handleSignup = async () => {
-
-    
+  const handleSignup = async () => {    
 
     try {
       
@@ -27,6 +26,7 @@ const Signup = () => {
 
       if (res.data.success) {
         toast.success("Signup successful!");
+        navigate('/store');
       } else {
         toast.error(res.data.message);
       }
