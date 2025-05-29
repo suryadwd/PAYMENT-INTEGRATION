@@ -1,6 +1,9 @@
+import Navbar from "./Navbar";
+
 const Display = () => {
   return (
     <div className="flex flex-wrap gap-3">
+    <Navbar />
     <div className=" flex flex-col items-center justify-center border-4 border-blue-500 rounded-lg p-1 bg-white text-black">
       <div className="">
         <img

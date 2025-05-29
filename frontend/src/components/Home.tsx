@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
+
+
 const Home = () => {
   return (
     <div className="container mx-auto p-8">
-
-      <div className="flex flex-col md:flex-row items-center justify-between gap-8">  
+      
+      <div className="flex flex-col md:flex-row items-center justify-between gap-8">
         <div className="  md:w-1/2 text-center md:text-left items-center">
           <h1 className="text-5xl font-bold mb-4">
             Welcome login to Continue
