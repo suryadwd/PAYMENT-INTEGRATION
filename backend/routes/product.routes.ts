@@ -9,9 +9,9 @@ import { protectRoute } from "../utils/middleware.js";
 
 const router = Router();
 
-router.post("/protectRoute/create", createProduct);
-router.get("/protectRoute/", getProducts);
-router.post("/protectRoute/:id", updateProduct);
-router.delete("/protectRoute/:id", deleteProduct);
+router.post("/create", protectRoute, createProduct);
+router.get("/",  getProducts);
+router.post("/:id", protectRoute, updateProduct);
+router.delete("/:id", protectRoute, deleteProduct);
 
 export default router;

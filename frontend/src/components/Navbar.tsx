@@ -9,7 +9,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const { name, role } = useUserData();
 
-  const handelLogout = async () => {
+  const handleLogout = async () => {
     try {
       const res = await axios.post(`${baseUrl}/auth/logout`,{}, {
         withCredentials: true,
@@ -26,7 +26,7 @@ const Navbar = () => {
     }
   }
 
- 
+  
 
   return (
     <div className="bg-gradient-to-r from-red-600 to-yellow-100 w-full  text-white p-4 flex justify-between items-center absolute top-0  right-0">
@@ -34,13 +34,13 @@ const Navbar = () => {
        <div className="flex items-center gap-10 text-black">
           {
             role === "admin" ? (
-              <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Dashboard</button>
+              <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Add-Admin</button>
             ) : (
               <></>
             )
           }
          <div>{name}</div>
-         <button onClick={handelLogout} className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Logout</button>
+         <button onClick={handleLogout} className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Logout</button>
        </div>
     </div>
   )
