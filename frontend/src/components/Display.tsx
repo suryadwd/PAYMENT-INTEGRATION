@@ -4,6 +4,8 @@ import { getProducts } from "../hooks/getProducts";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { toast } from 'react-toastify';
+import {useRazorpay} from "../hooks/getRazorpay";
+
 type Product = {
   image: string;
   name: string;
@@ -12,10 +14,11 @@ type Product = {
   _id: string;
 };
 
-const Display = () => {
-  const { role } = useUserData();
-  const { products, fetchProducts } = getProducts() as { products: Product[] };
 
+const Display = () => {
+  const { role, id } = useUserData();
+  const { products, fetchProducts } = getProducts() as { products: Product[]; fetchProducts: () => void };
+  const { loadRazorpay } = useRazorpay();
   const baseUrl = import.meta.env.VITE_BASE_URL;
   
 
@@ -66,8 +69,8 @@ const Display = () => {
             </div>
             <div className="flex items-center justify-evenly w-full gap-2">
               {role === "user" ? (
-                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                  Buy Now{" "}
+                <button  onClick={() => loadRazorpay(id, products._id)} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                  Buy Now
                 </button>
               ) : (
                 <>

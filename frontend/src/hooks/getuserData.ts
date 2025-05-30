@@ -8,6 +8,7 @@ const baseUrl = import.meta.env.VITE_BASE_URL; // or however you access it
 export const useUserData = () => {
   const [name, setName] = useState('');
   const [role, setRole] = useState('');
+  const [id , setId] = useState('')
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -19,6 +20,7 @@ export const useUserData = () => {
         if (res.data.success) {
           setName(res.data.user.name);
           setRole(res.data.user.role);
+          setId(res.data.user._id);
         }
       } catch (error) {
         console.log('error in checking auth', error);
@@ -28,5 +30,5 @@ export const useUserData = () => {
     userInfo();
   }, [navigate]);
 
-  return { name, role };
+  return { name, role, id };
 };
