@@ -1,27 +1,30 @@
 import mongoose,{Schema, Model, Document} from "mongoose";
 
 export interface ITransaction extends Document {
-  user: mongoose.Types.ObjectId;
-  rzp_orderId: string;
-  rzp_paymentId: string;
-  rzp_signature: string;
+  userId: mongoose.Types.ObjectId;
+  productId: mongoose.Types.ObjectId;
+  razorpayOrderId: string;
+  razorpayPaymentId: string;
+  razorpaySignature: string;
   amount: number;
   currency?: string;
   status?: 'created' | 'paid' | 'failed';
+  createdAt?: Date;
 }
 
 const transactionSchema: Schema<ITransaction> = new Schema({
 
-  user:{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
-  },
-  rzp_orderId: String,
-  rzp_paymentId: String,
-  rzp_signature: String,
-  amount: Number,
+  userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+  productId: { type: mongoose.Schema.Types.ObjectId, ref: 'Product', required: true },
+  razorpayOrderId: { type: String },
+  razorpayPaymentId: { type: String },
+  razorpaySignature: { type: String },
+  amount: { type: Number, required: true },
   currency: { type: String, default: 'INR' },
-  status: { type: String, enum: ['created', 'paid', 'failed'], default: 'created' }
+  status: { type: String, enum: ['created', 'paid', 'failed'], default: 'created' },
+  createdAt: { type: Date, default: Date.now }
+
+
 },{timestamps: true})
 
 
