@@ -6,6 +6,7 @@ dotenv.config();
 import cookieParser from "cookie-parser";
 import userRouter from "./routes/user.routes.js";
 import productRouter from "./routes/product.routes.js";
+import transactionRouter from "./routes/transaction.routes.js";
 import { dbConnect } from "./config/db.js";
 
 app.use(express.json());
@@ -15,7 +16,8 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/auth", userRouter);
 app.use("/products", productRouter);
-  
+app.use("/transactions", transactionRouter);
+
 const PORT = process.env.PORT || 8000;
 
 app.listen(PORT, () => {
