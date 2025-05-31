@@ -7,10 +7,6 @@ import * as crypto from "crypto";
 
 export const createOrder = async (req: any, res: any) => {
   try {
-    
-    console.log("Incoming order request:", req.body);
-    console.log("Cookies:", req.cookies);
-    console.log("User:", req.user); // from protectRoute
 
     const {userId, productId} = req.body;
     if (!userId || !productId)  return res.status(400).json({ error: "User ID and Product ID are required" });
