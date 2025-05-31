@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
- const ProtectedRoute = ({ children }) => {
+ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   const navigate = useNavigate();
   const [isAuth, setIsAuth] = useState<boolean | null>(null);
 
