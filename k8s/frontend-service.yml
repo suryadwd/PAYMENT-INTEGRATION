@@ -1,0 +1,15 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: payment-client-service
+  namespace: payment-ns
+spec:
+  selector:
+    app: payment-client-label
+  type: NodePort
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+      nodePort: 31000
+    
