@@ -1,0 +1,8 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: payment-backend-config
+  namespace: payment-ns
+data:
+  PORT: "7000"
+  
