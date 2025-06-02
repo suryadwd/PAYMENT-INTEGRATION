@@ -3,7 +3,7 @@ version: "3.9"
 services:
   backend:
     image: suryasuraj/payment-server:latest
-    container_name: payment-backend-container
+    container_name: payment-backend-container-test
     ports:
       - "7000:7000"
     env_file:
