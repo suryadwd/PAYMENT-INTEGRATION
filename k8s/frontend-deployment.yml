@@ -1,0 +1,20 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: payment-client-dev
+  namespace: payment-ns
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: payment-client-label
+  template:
+    metadata:
+      labels:
+        app: payment-client-label
+    spec:
+       containers:
+         - name: payment-client-con
+           image: suryasuraj/payment-client:latest
+           ports:
+             - containerPort: 5173
