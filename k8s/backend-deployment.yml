@@ -1,0 +1,65 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: payment-backend-dev
+  namespace: payment-ns
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: payment-backend-label
+  template:
+    metadata:
+      labels:
+        app: payment-backend-label
+    spec:
+      containers:
+        - name: payment-backend-con
+          image: suryasuraj/payment-server:latest
+          ports:
+            - containerPort: 7000
+          env:
+            - name: PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: payment-backend-config
+                  key: PORT
+            - name: RAZORPAY_KEY_ID
+              valueFrom:
+                secretKeyRef:
+                  name: payment-backend-secret
+                  key: RAZORPAY_KEY_ID
+            - name: RAZORPAY_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: payment-backend-secret
+                  key: RAZORPAY_SECRET
+            - name: JWT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: payment-backend-secret
+                  key: JWT_SECRET
+            - name: MONGO_URI
+              valueFrom:
+                secretKeyRef:
+                  name: payment-backend-secret
+                  key: MONGO_URI
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
+
+
+
+
+
+
+
+
+
+
+
+
