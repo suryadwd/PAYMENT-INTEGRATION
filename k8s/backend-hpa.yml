@@ -8,8 +8,8 @@ spec:
     kind: Deployment
     apiVersion: apps/v1
     name: payment-backend-dev
-  minReplica: 1
-  maxReplica: 5
+  minReplicas: 1
+  maxReplicas: 5
   metrics:
     - type: Resource
       resource:
