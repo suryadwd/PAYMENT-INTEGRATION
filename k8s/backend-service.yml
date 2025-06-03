@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: payment-backend-service
+  namespace: payment-ns
+spec:
+  selector:
+    app: payment-backend-label
+  type: NodePort
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 7000
+
