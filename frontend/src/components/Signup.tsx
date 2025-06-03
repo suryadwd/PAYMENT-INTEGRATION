@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import axios from 'axios';
+
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axiosInstance from '../utils/axios';
 
 const Signup = () => {
 
-  const baseUrl = import.meta.env.VITE_BASE_URL;
   
   const [data, setData] = useState({
     name: '',
@@ -20,7 +20,7 @@ const Signup = () => {
 
     try {
       
-      const res = await axios.post(`${baseUrl}/auth/register`, data, {
+      const res = await axiosInstance.post(`/auth/register`, data, {
         withCredentials: true,
       })
 

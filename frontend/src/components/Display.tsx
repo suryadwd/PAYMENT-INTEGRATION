@@ -2,9 +2,9 @@ import Navbar from "./Navbar";
 import { useUserData } from "../hooks/getuserData";
 import { getProducts } from "../hooks/getProducts";
 import { Link } from "react-router-dom";
-import axios from "axios";
 import { toast } from 'react-toastify';
 import {useRazorpay} from "../hooks/getRazorpay";
+import axiosInstance from "../utils/axios";
 
 type Product = {
   image: string;
@@ -19,12 +19,11 @@ const Display = () => {
   const { role, id } = useUserData();
   const { products, fetchProducts } = getProducts() as { products: Product[]; fetchProducts: () => void };
   const { loadRazorpay } = useRazorpay();
-  const baseUrl = import.meta.env.VITE_BASE_URL;
   
 
  const handleDelete = async (id: string) => {
     try {
-      const res = await axios.delete(`${baseUrl}/products/delete/${id}`,   {
+      const res = await axiosInstance.delete(`/products/delete/${id}`,   {
         withCredentials: true,
       });
 

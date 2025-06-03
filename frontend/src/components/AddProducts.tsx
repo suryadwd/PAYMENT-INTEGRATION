@@ -1,7 +1,8 @@
-import axios from "axios";
+
 import { useState } from "react";
 import { toast } from 'react-toastify';
 import { useNavigate } from "react-router-dom";
+import axiosInstance from "../utils/axios";
 const AddProducts = () => {
   const baseUrl = import.meta.env.VITE_BASE_URL;
  
@@ -16,7 +17,7 @@ const AddProducts = () => {
 
   const handleAdd = async () => {
     try {
-      const res = await axios.post(`${baseUrl}/products/create`, data , {
+      const res = await axiosInstance.post(`/products/create`, data , {
         withCredentials: true,
       });
 

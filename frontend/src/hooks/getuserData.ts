@@ -1,9 +1,7 @@
 
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
-
-const baseUrl = import.meta.env.VITE_BASE_URL; // or however you access it
+import axiosInstance from '../utils/axios';
 
 export const useUserData = () => {
   const [name, setName] = useState('');
@@ -14,7 +12,7 @@ export const useUserData = () => {
   useEffect(() => {
     const userInfo = async () => {
       try {
-        const res = await axios.get(`${baseUrl}/auth/user`, {
+        const res = await axiosInstance.get(`/auth/user`, {
           withCredentials: true,
         });
         if (res.data.success) {

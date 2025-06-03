@@ -1,12 +1,10 @@
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import axios from 'axios';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axiosInstance from '../utils/axios';
 
 const Login = () => {
-
-  const baseUrl = import.meta.env.VITE_BASE_URL;
     
     const [data, setData] = useState({
       email: '',
@@ -18,7 +16,7 @@ const Login = () => {
     const handleLogin = async () => {
   
       try {
-        const res = await axios.post(`${baseUrl}/auth/login`, data, {
+        const res = await axiosInstance.post(`/auth/login`, data, {
           withCredentials: true,
         })
         if (res.data.success) {

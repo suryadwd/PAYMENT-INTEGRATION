@@ -1,18 +1,16 @@
-// hooks/useRazorpay.ts
-import axios from "axios";
+import axiosInstance from "../utils/axios";
 
 declare global {
   interface Window {
     Razorpay: any;
   }
 }
-const baseUrl = import.meta.env.VITE_BASE_URL;
 
 export const useRazorpay = () => {
   const loadRazorpay = async (userId: string, productId: string) => {
     try {
-      const { data } = await axios.post(
-        `${baseUrl}/transactions/create-order`,
+      const { data } = await axiosInstance.post(
+        `/transactions/create-order`,
         {
           userId,
           productId,
@@ -27,8 +25,8 @@ export const useRazorpay = () => {
         order_id: data.orderId,
         handler: async function (response: any) {
           try {
-            const verifyRes = await axios.post(
-              `${baseUrl}/transactions/verify-payment`,
+            const verifyRes = await axiosInstance.post(
+              `/transactions/verify-payment`,
               {
                 razorpay_order_id: response.razorpay_order_id,
                 razorpay_payment_id: response.razorpay_payment_id,

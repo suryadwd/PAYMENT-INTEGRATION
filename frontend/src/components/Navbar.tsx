@@ -1,18 +1,17 @@
 import { toast } from 'react-toastify';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useUserData } from '../hooks/getuserData';
 import { Link } from 'react-router-dom';
+import axiosInstance from '../utils/axios';
 
 const Navbar = () => {
 
-  const baseUrl = import.meta.env.VITE_BASE_URL;
   const navigate = useNavigate();
   const { name, role } = useUserData();
 
   const handleLogout = async () => {
     try {
-      const res = await axios.post(`${baseUrl}/auth/logout`,{}, {
+      const res = await axiosInstance.post(`/auth/logout`,{}, {
         withCredentials: true,
       });
       if (res.data.success) {

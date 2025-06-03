@@ -1,10 +1,8 @@
-import axios from "axios";
 import { useState } from "react";
 import { toast } from 'react-toastify';
 import { useNavigate, useParams } from "react-router-dom";
+import axiosInstance from "../utils/axios";
 const UpdateProduct = () => {
-  const baseUrl = import.meta.env.VITE_BASE_URL;
-
   const [data, setData] = useState({
     name: "",
     price: "",
@@ -23,7 +21,7 @@ const UpdateProduct = () => {
 
   const handleUpdate = async () => {
     try {
-      const res = await axios.post(`${baseUrl}/products/update/${id}`, filteredData , {
+      const res = await axiosInstance.post(`/products/update/${id}`, filteredData , {
         withCredentials: true,
       });
 
