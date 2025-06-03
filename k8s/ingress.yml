@@ -1,0 +1,28 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: payment-ingress
+  namespace: payment-ns
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: 13.61.164.1.nip.io
+      http:
+        paths:
+          - path: /api
+            pathType: Prefix
+            backend:
+              service:
+                name: payment-backend-service
+                port:
+                  number: 7000
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: payment-client-service
+                port:
+                  number: 80
+
