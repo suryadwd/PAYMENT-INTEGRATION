@@ -15,6 +15,9 @@ RUN npm install
 # copy the code from local to docker
 COPY . .
 
+# set environment variable to production
+ENV VITE_BASE_URL=/api
+
 # build the react app
 RUN npm run build
 
