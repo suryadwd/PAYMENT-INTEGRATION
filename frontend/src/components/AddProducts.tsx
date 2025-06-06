@@ -4,7 +4,6 @@ import { toast } from 'react-toastify';
 import { useNavigate } from "react-router-dom";
 import axiosInstance from "../utils/axios";
 const AddProducts = () => {
-  const baseUrl = import.meta.env.VITE_BASE_URL;
  
    const [data, setData] = useState({
     name:"",
