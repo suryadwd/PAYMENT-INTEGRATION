@@ -4,11 +4,12 @@ metadata:
   name: payment-ingress
   namespace: payment-ns
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
 spec:
   ingressClassName: nginx
   rules:
-    - http:
+    - host: 16.171.16.134.nip.io
+      http:
         paths:
           - path: /api
             pathType: Prefix
