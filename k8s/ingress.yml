@@ -4,7 +4,7 @@ metadata:
   name: payment-ingress
   namespace: payment-ns
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    # Removed: nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   ingressClassName: nginx
   rules:
