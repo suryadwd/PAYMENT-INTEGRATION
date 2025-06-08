@@ -2,6 +2,8 @@ import { User } from "../models/user.model.js";
 import bcrypt from "bcrypt";
 import { genTokenSetCookies } from "../utils/token.js";
 
+// working
+
 export const register = async (req:any, res:any) => {
   try {
     const { name, email, password } = req.body;
