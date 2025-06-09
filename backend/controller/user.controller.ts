@@ -3,7 +3,7 @@ import bcrypt from "bcrypt";
 import { genTokenSetCookies } from "../utils/token.js";
 
 // working
-
+// adding the google auth and github auth next part 
 export const register = async (req:any, res:any) => {
   try {
     const { name, email, password } = req.body;
