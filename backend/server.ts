@@ -10,7 +10,7 @@ import transactionRouter from "./routes/transaction.routes.js";
 import { dbConnect } from "./config/db.js";
 
 app.use(express.json());
-app.use(cors({ credentials: true, origin:[ "http://localhost:5173",  'http://13.61.164.1.nip.io',  "http://16.171.16.134:30221"] }));
+app.use(cors({ credentials: true, origin:[ "http://localhost:5173", "http://localhost:3000",  'http://13.61.164.1.nip.io',  "http://16.171.16.134:30221"] }));
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 

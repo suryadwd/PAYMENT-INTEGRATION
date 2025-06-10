@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+import axiosInstance from '../utils/axios';
 
-const baseUrl = import.meta.env.VITE_BASE_URL; // or however you access it
+
 
 export const getProducts = () => {
 
@@ -10,7 +10,7 @@ export const getProducts = () => {
    const fetchProducts = async () => {
 
     try {
-      const res = await axios.get(`${baseUrl}/products/`, {
+      const res = await axiosInstance.get(`api/products/`, {
         withCredentials: true,
       });
 

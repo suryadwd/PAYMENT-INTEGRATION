@@ -10,7 +10,7 @@ export const useRazorpay = () => {
   const loadRazorpay = async (userId: string, productId: string) => {
     try {
       const { data } = await axiosInstance.post(
-        `/transactions/create-order`,
+        `api/transactions/create-order`,
         {
           userId,
           productId,
@@ -26,7 +26,7 @@ export const useRazorpay = () => {
         handler: async function (response: any) {
           try {
             const verifyRes = await axiosInstance.post(
-              `/transactions/verify-payment`,
+              `api/transactions/verify-payment`,
               {
                 razorpay_order_id: response.razorpay_order_id,
                 razorpay_payment_id: response.razorpay_payment_id,

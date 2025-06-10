@@ -27,6 +27,7 @@ FROM nginx:alpine
 
 # copy the build files from builder stage to nginx to serve it
 COPY --from=builder /app/dist /usr/share/nginx/html
+COPY default.conf /etc/nginx/conf.d/default.conf
 # this will run this container by default at 80 port
 EXPOSE 80
 #  Run nginx in the foreground

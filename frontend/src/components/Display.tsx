@@ -23,7 +23,7 @@ const Display = () => {
 
  const handleDelete = async (id: string) => {
     try {
-      const res = await axiosInstance.delete(`/products/delete/${id}`,   {
+      const res = await axiosInstance.delete(`api/products/delete/${id}`,   {
         withCredentials: true,
       });
 

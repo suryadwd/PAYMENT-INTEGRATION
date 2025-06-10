@@ -1,18 +1,17 @@
-
-import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import axiosInstance from '../utils/axios';
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axiosInstance from "../utils/axios";
 
 export const useUserData = () => {
-  const [name, setName] = useState('');
-  const [role, setRole] = useState('');
-  const [id , setId] = useState('')
+  const [name, setName] = useState("");
+  const [role, setRole] = useState("");
+  const [id, setId] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
     const userInfo = async () => {
       try {
-        const res = await axiosInstance.get(`/auth/user`, {
+        const res = await axiosInstance.get(`api/auth/user`, {
           withCredentials: true,
         });
         if (res.data.success) {
@@ -21,8 +20,8 @@ export const useUserData = () => {
           setId(res.data.user._id);
         }
       } catch (error) {
-        console.log('error in checking auth', error);
-        navigate('/auth/login');
+        console.log("error in checking auth", error);
+        navigate("/auth/login");
       }
     };
     userInfo();

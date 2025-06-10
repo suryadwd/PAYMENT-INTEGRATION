@@ -16,7 +16,7 @@ const AddProducts = () => {
 
   const handleAdd = async () => {
     try {
-      const res = await axiosInstance.post(`/products/create`, data , {
+      const res = await axiosInstance.post(`api/products/create`, data , {
         withCredentials: true,
       });
 

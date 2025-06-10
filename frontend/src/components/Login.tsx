@@ -16,7 +16,7 @@ const Login = () => {
     const handleLogin = async () => {
   
       try {
-        const res = await axiosInstance.post(`/auth/login`, data, {
+        const res = await axiosInstance.post(`api/auth/login`, data, {
           withCredentials: true,
         })
         if (res.data.success) {

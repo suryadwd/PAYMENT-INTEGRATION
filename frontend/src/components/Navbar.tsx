@@ -11,7 +11,7 @@ const Navbar = () => {
 
   const handleLogout = async () => {
     try {
-      const res = await axiosInstance.post(`/auth/logout`,{}, {
+      const res = await axiosInstance.post(`api/auth/logout`,{}, {
         withCredentials: true,
       });
       if (res.data.success) {

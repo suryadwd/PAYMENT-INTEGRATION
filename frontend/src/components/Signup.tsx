@@ -20,7 +20,7 @@ const Signup = () => {
 
     try {
       
-      const res = await axiosInstance.post(`/auth/register`, data, {
+      const res = await axiosInstance.post(`api/auth/register`, data, {
         withCredentials: true,
       })
 

@@ -21,7 +21,7 @@ const UpdateProduct = () => {
 
   const handleUpdate = async () => {
     try {
-      const res = await axiosInstance.post(`/products/update/${id}`, filteredData , {
+      const res = await axiosInstance.post(`api/products/update/${id}`, filteredData , {
         withCredentials: true,
       });
 
