@@ -14,11 +14,6 @@ const Home = () => {
            <Link to="/auth/login">
             <button
             className="mt-16 ml-[30%] px-6 py-2 font-semibold  bg-blue-600 text-white rounded hover:bg-blue-700 transition"
-            // onClick={() => {
-            //    Redirect to the login page
-            //    window.location.href = "/auth/login";
-             
-            // }}
           >
             Continue
           </button>
@@ -30,9 +25,9 @@ const Home = () => {
        
         <div className="md:w-1/2">
           <div className="flex items-center justify-center border border-white rounded-lg bg-white p-4 gap-4">
-            <img src="dockerlogo.png" alt="Docker" className="w-46 h-46 object-contain" />
-            <img src="k8ss.png" alt="Kubernetes" className="w-46 h-46 object-contain" />
-            <img src="images.png" alt="Razorpay" className="w-46 h-46 object-contain" />
+            <img src="dockerlogo.png" alt="Docker image" className="w-46 h-46 object-contain" />
+            <img src="k8ss.png" alt="Kubernetes image" className="w-46 h-46 object-contain" />
+            <img src="images.png" alt="Razorpay image" className="w-46 h-46 object-contain" />
           </div>
         </div>
 
