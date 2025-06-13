@@ -27,7 +27,7 @@ const Home = () => {
           <div className="flex items-center justify-center border border-white rounded-lg bg-white p-4 gap-4">
             <img src="dockerlogo.png" alt="Docker image" className="w-46 h-46 object-contain" />
             <img src="k8ss.png" alt="Kubernetes image" className="w-46 h-46 object-contain" />
-            <img src="images.png" alt="Razorpay image" className="w-46 h-46 object-contain" />
+            <img src="images.png" alt="Razorpay image h" className="w-46 h-46 object-contain" />
           </div>
         </div>
 
