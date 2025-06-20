@@ -1,0 +1,28 @@
+{
+  "name": "pay-desktop-app",
+  "version": "1.0.0",
+  "description": "Desktop wrapper for pay.devsurya.space",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder"
+  },
+  "build": {
+    "appId": "com.devsurya.payapp",
+    "productName": "PayDeskApp",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "**/*"
+    ],
+    "win": {
+      "target": "nsis"
+    }
+  },
+  "devDependencies": {
+    "electron": "^28.0.0",
+    "electron-builder": "^24.0.0"
+  }
+}
+
